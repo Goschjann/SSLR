@@ -548,7 +548,7 @@ predict_random_parallel <- function(object,inputs, mode = "classification",type 
       new_result <- get_class_mean_prob(object@trees_list,inputs[i,, drop = FALSE])
       new_result
     }
-  } else if (type=='mean_prob'){
+  } else {
     #in case of type='mean_prob', we need to .combine with 'rbind'
     results <- foreach::foreach(i = 1:nrow(inputs),.combine = 'c') %dopar% {
           
